@@ -1,57 +1,153 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - PriceTracker</title>
+    <title>Tutoriel Leek Wars</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
+            background-color: #f4f4f9;
             color: #333;
         }
-        h2 {
-            color: #555;
+        h1, h2, h3 {
+            color: #444;
         }
-        p {
-            color: #666;
+        code {
+            background-color: #eaeaea;
+            padding: 2px 4px;
+            font-family: monospace;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Tutoriel Leek Wars : Découverte et Programmation en LeekScript</h1>
+    </header>
 
-<h1>Politique de confidentialité de PriceTracker</h1>
-<p><strong>Dernière mise à jour :</strong> 13 décembre 2024</p>
+    <main>
+        <section class="section">
+            <h2>Introduction à Leek Wars</h2>
+            <p>
+                Leek Wars est un jeu de programmation dans lequel vous programmez des "poireaux" (des bots) pour se battre dans une arène.
+                Vous utiliserez le langage <strong>LeekScript</strong> pour créer votre intelligence artificielle (IA).
+            </p>
+        </section>
 
-<p>Cette politique de confidentialité décrit comment PriceTracker collecte, utilise et protège vos informations personnelles.</p>
+        <section class="section">
+            <h2>Faire le lien entre Scratch et LeekScript</h2>
+            <p>
+                Pour les débutants venant de Scratch, voici quelques équivalences :
+            </p>
+            <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Concept dans Scratch</th>
+                        <th>Équivalent en LeekScript</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blocs "Quand drapeau vert cliqué"</td>
+                        <td>Le code commence automatiquement. Pas besoin de "drapeau".</td>
+                    </tr>
+                    <tr>
+                        <td>Blocs "Si... alors..."</td>
+                        <td>La condition <code>if</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Blocs "Répéter X fois"</td>
+                        <td>La boucle <code>for</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Variables Scratch</td>
+                        <td>Variables identiques en LeekScript (avec <code>var</code>).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-<h2>Collecte et utilisation des données</h2>
-<p>PriceTracker collecte les informations suivantes :</p>
-<ul>
-    <li><strong>Adresse e-mail :</strong> utilisée pour l'inscription à l'application.</li>
-    <li><strong>Localisation :</strong> utilisée pour afficher le magasin dans lequel se trouve l'utilisateur.</li>
-</ul>
-<p>Ces données sont uniquement utilisées pour fournir et améliorer les services de l'application. Nous ne partageons pas vos informations personnelles avec des tiers.</p>
+        <section class="section">
+            <h2>Exemples de base</h2>
+            <h3>Dire quelque chose</h3>
+            <pre><code>say("Je suis prêt à combattre !");</code></pre>
 
-<h2>Accès et modification des données</h2>
-<p>Vous pouvez accéder, modifier ou supprimer vos données personnelles en envoyant un e-mail à <a href="mailto:mail.vmoyse.tech">mail.vmoyse.tech</a>.</p>
+            <h3>Se déplacer</h3>
+            <pre><code>var enemies = getEnemies(); // Liste des ennemis
+if (!isEmpty(enemies)) {
+    moveToward(enemies[0]); // S'approche du premier ennemi
+}</code></pre>
 
-<h2>Sécurité des données</h2>
-<p>Nous utilisons une base de données Supabase dont seul le développeur a accès pour assurer la sécurité de vos informations.</p>
-<p>Votre mot de passe n'est pas visible par le développeur car il est hashé et hors de la base de donnée de l'application </p>
+            <h3>Attaquer un ennemi</h3>
+            <pre><code>if (canUseWeapon()) {         // Vérifie si l'arme est prête
+    useWeapon(enemies[0]);    // Attaque le premier ennemi
+}</code></pre>
+        </section>
 
-<h2>Modifications de la politique de confidentialité</h2>
-<p>Toute modification de cette politique sera communiquée via un popup s'affichant à l'ouverture de l'application. Ce popup ne pourra être fermé sans avoir été validé.</p>
+        <section class="section">
+            <h2>Stratégies avancées</h2>
+            <h3>Cibler l’ennemi le plus faible</h3>
+            <pre><code>var enemies = getEnemies();
+var weakestEnemy = null;
+var lowestLife = 99999;
 
-<h2>Contact</h2>
-<p>Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à <a href="mailto:mail@vmoyse.tech">mail@vmoyse.tech</a>.</p>
+for (var enemy in enemies) {
+    var enemyLife = getLife(enemy);
+    if (enemyLife < lowestLife) {
+        lowestLife = enemyLife;
+        weakestEnemy = enemy;
+    }
+}
 
-<p>En utilisant PriceTracker, vous acceptez les termes de cette politique de confidentialité.</p>
+if (weakestEnemy != null && canUseWeapon()) {
+    useWeapon(weakestEnemy);
+}</code></pre>
 
+            <h3>Créer des fonctions</h3>
+            <p>Les fonctions permettent de structurer et de réutiliser votre code.</p>
+            <pre><code>function attackClosestEnemy() {
+    var enemies = getEnemies();
+    if (!isEmpty(enemies)) {
+        useWeapon(enemies[0]);
+    }
+}
+
+// Appeler la fonction
+attackClosestEnemy();</code></pre>
+        </section>
+
+        <section class="section">
+            <h2>Exercices pour s'entraîner</h2>
+            <ul>
+                <li>Déplacer votre poireau vers un ennemi et afficher "Je t'attaque !".</li>
+                <li>Créer une IA défensive qui fuit lorsque la vie est faible.</li>
+                <li>Programmer une IA qui cible en priorité l’ennemi ayant le moins de vie.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Avec ces bases et exercices, vous pouvez maintenant développer des IA plus complexes et participer à des compétitions dans Leek Wars.
+                Amusez-vous bien et bonne chance dans l’arène !
+            </p>
+        </section>
+    </main>
 </body>
 </html>
