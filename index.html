@@ -142,10 +142,93 @@ attackClosestEnemy();</code></pre>
         </section>
 
         <section class="section">
+            <h2>Ajouter des stratégies complexes</h2>
+            <h3>Prioriser les ennemis</h3>
+            <p>Ciblez les ennemis en fonction de critères comme :</p>
+            <ul>
+                <li>L’ennemi ayant le moins de vie.</li>
+                <li>L’ennemi le plus proche.</li>
+                <li>L’ennemi infligeant le plus de dégâts.</li>
+            </ul>
+            <pre><code>var enemies = getEnemies();
+var dangerousEnemy = null;
+
+for (var enemy in enemies) {
+    if (getWeapon(enemy) == "Big Gun") {
+        dangerousEnemy = enemy;
+        break;
+    }
+}
+
+if (dangerousEnemy != null) {
+    moveToward(dangerousEnemy);
+    useWeapon(dangerousEnemy);
+}</code></pre>
+
+            <h3>Éviter les zones dangereuses</h3>
+            <pre><code>var enemies = getEnemies();
+for (var enemy in enemies) {
+    if (getDistance(getCell(), getCell(enemy)) < 3) {
+        moveAwayFrom(enemy);
+        break;
+    }
+}</code></pre>
+
+            <h3>Utiliser des puces intelligemment</h3>
+            <pre><code>if (count(getEnemiesInRange(3)) > 2 && canUseChip("Teleport")) {
+    useChip("Teleport", getCell(getRandomEmptyCell()));
+}</code></pre>
+        </section>
+
+        <section class="section">
+            <h2>Organiser le Code avec des Fonctions</h2>
+            <p>Créer des fonctions permet de rendre le code lisible et réutilisable.</p>
+            <pre><code>function moveStrategically() {
+    var enemies = getEnemies();
+    var closestEnemy = null;
+    var closestDistance = 99999;
+
+    for (var enemy in enemies) {
+        var distance = getDistance(getCell(), getCell(enemy));
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closestEnemy = enemy;
+        }
+    }
+
+    if (closestDistance < 3) {
+        moveAwayFrom(closestEnemy);
+    } else if (closestDistance <= 7) {
+        moveToward(closestEnemy);
+    }
+}
+
+moveStrategically();</code></pre>
+        </section>
+
+        <section class="section">
+            <h2>Les prochains défis</h2>
+            <ul>
+                <li>Faire évoluer l’IA : ajouter des comportements pour contrer des stratégies adverses.</li>
+                <li>Simuler des matchs avec différentes tactiques.</li>
+                <li>Créer des "personnalités" pour les poireaux : agressif, défensif, rusé.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Conseils pour enseigner aux ados</h2>
+            <ul>
+                <li><strong>Encouragez l’expérimentation :</strong> Faites-leur tester différentes idées dans l’arène pour voir ce qui fonctionne.</li>
+                <li><strong>Valorisez les petites réussites :</strong> Même une IA simple qui bouge correctement est une étape importante.</li>
+                <li><strong>Ajoutez du fun :</strong> Organisez des mini-tournois entre les élèves pour motiver les plus compétitifs.</li>
+                <li><strong>Montrez des progrès concrets :</strong> Expliquez comment une IA basique peut devenir redoutable avec quelques améliorations.</li>
+            </ul>
+        </section>
+
+        <section class="section">
             <h2>Conclusion</h2>
             <p>
-                Avec ces bases et exercices, vous pouvez maintenant développer des IA plus complexes et participer à des compétitions dans Leek Wars.
-                Amusez-vous bien et bonne chance dans l’arène !
+Bonne chance dans l’arène ! 🎉
             </p>
         </section>
     </main>
