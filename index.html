@@ -1,227 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutoriel Leek Wars</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        h1, h2, h3 {
-            color: #444;
-        }
-        code {
-            background-color: #eaeaea;
-            padding: 2px 4px;
-            font-family: monospace;
-            border-radius: 3px;
-        }
-        pre {
-            background-color: #eaeaea;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Python – Mémo de Référence pour les Exercices</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      background-color: #f9f9f9;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eaeaea;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Tutoriel Leek Wars : Découverte et Programmation en LeekScript</h1>
-    </header>
 
-    <main>
-        <section class="section">
-            <h2>Introduction à Leek Wars</h2>
-            <p>
-                Leek Wars est un jeu de programmation dans lequel vous programmez des "poireaux" (des bots) pour se battre dans une arène.
-                Vous utiliserez le langage <strong>LeekScript</strong> pour créer votre intelligence artificielle (IA).
-            </p>
-        </section>
+<h1>📜 Python – Mémo de Référence pour les Exercices</h1>
+<p>📘 À garder à côté de soi pendant les exercices !</p>
 
-        <section class="section">
-            <h2>Faire le lien entre Scratch et LeekScript</h2>
-            <p>
-                Pour les débutants venant de Scratch, voici quelques équivalences :
-            </p>
-            <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Concept dans Scratch</th>
-                        <th>Équivalent en LeekScript</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Blocs "Quand drapeau vert cliqué"</td>
-                        <td>Le code commence automatiquement. Pas besoin de "drapeau".</td>
-                    </tr>
-                    <tr>
-                        <td>Blocs "Si... alors..."</td>
-                        <td>La condition <code>if</code>.</td>
-                    </tr>
-                    <tr>
-                        <td>Blocs "Répéter X fois"</td>
-                        <td>La boucle <code>for</code>.</td>
-                    </tr>
-                    <tr>
-                        <td>Variables Scratch</td>
-                        <td>Variables identiques en LeekScript (avec <code>var</code>).</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+<hr>
 
-        <section class="section">
-            <h2>Exemples de base</h2>
-            <h3>Dire quelque chose</h3>
-            <pre><code>say("Je suis prêt à combattre !");</code></pre>
+<div class="section">
+<h2>📨 <code>print()</code> – Afficher un message</h2>
+<pre><code>print("Bonjour !")</code></pre>
+<p><strong>➞ Affiche :</strong><br>Bonjour !</p>
+<p><strong>💡 Pourquoi ?</strong><br>Tu veux que ton programme <em>parle</em> ? C’est avec <code>print()</code> que tu lui fais afficher du texte ou des résultats.</p>
+</div>
 
-            <h3>Se déplacer</h3>
-            <pre><code>var enemies = getEnemies(); // Liste des ennemis
-if (!isEmpty(enemies)) {
-    moveToward(enemies[0]); // S'approche du premier ennemi
-}</code></pre>
+<div class="section">
+<h2>📆 Variables – Mémoriser des infos</h2>
+<pre><code>nom = "Alex"
+age = 15</code></pre>
+<pre><code>print(nom)</code></pre>
+<p><strong>➞ Affiche :</strong><br>Alex</p>
+<p><strong>💡 Pourquoi ?</strong><br>Une variable est comme une <em>boîte avec une étiquette</em> : tu y ranges quelque chose et tu peux le réutiliser.</p>
+</div>
 
-            <h3>Attaquer un ennemi</h3>
-            <pre><code>if (canUseWeapon()) {         // Vérifie si l'arme est prête
-    useWeapon(enemies[0]);    // Attaque le premier ennemi
-}</code></pre>
-        </section>
+<div class="section">
+<h2>🎤 <code>input()</code> – Demander quelque chose à l'utilisateur</h2>
+<pre><code>prenom = input("Quel est ton prénom ? ")
+print("Bonjour", prenom)</code></pre>
+<p><strong>➞ Si tu tapes <code>Emma</code>, il affiche :</strong><br>Bonjour Emma</p>
+<p><strong>⚠️ Attention</strong> : <code>input()</code> renvoie toujours du texte. Si tu veux un nombre :</p>
+<pre><code>age = int(input("Quel âge as-tu ? "))</code></pre>
+</div>
 
-        <section class="section">
-            <h2>Stratégies avancées</h2>
-            <h3>Cibler l’ennemi le plus faible</h3>
-            <pre><code>var enemies = getEnemies();
-var weakestEnemy = null;
-var lowestLife = 99999;
+<div class="section">
+<h2>🧰 Fonctions – Blocs de code réutilisables</h2>
+<pre><code>def dire_bonjour():
+    print("Salut tout le monde !")
 
-for (var enemy in enemies) {
-    var enemyLife = getLife(enemy);
-    if (enemyLife < lowestLife) {
-        lowestLife = enemyLife;
-        weakestEnemy = enemy;
-    }
-}
+dire_bonjour()</code></pre>
+<p><strong>➞ Affiche :</strong><br>Salut tout le monde !</p>
 
-if (weakestEnemy != null && canUseWeapon()) {
-    useWeapon(weakestEnemy);
-}</code></pre>
+<h3>Avec paramètre :</h3>
+<pre><code>def bonjour(prenom):
+    print("Salut", prenom)
 
-            <h3>Créer des fonctions</h3>
-            <p>Les fonctions permettent de structurer et de réutiliser votre code.</p>
-            <pre><code>function attackClosestEnemy() {
-    var enemies = getEnemies();
-    if (!isEmpty(enemies)) {
-        useWeapon(enemies[0]);
-    }
-}
+bonjour("Léo")</code></pre>
+<p><strong>➞ Affiche :</strong><br>Salut Léo</p>
 
-// Appeler la fonction
-attackClosestEnemy();</code></pre>
-        </section>
+<h3>Avec retour :</h3>
+<pre><code>def addition(a, b):
+    return a + b
 
-        <section class="section">
-            <h2>Exercices pour s'entraîner</h2>
-            <ul>
-                <li>Déplacer votre poireau vers un ennemi et afficher "Je t'attaque !".</li>
-                <li>Créer une IA défensive qui fuit lorsque la vie est faible.</li>
-                <li>Programmer une IA qui cible en priorité l’ennemi ayant le moins de vie.</li>
-            </ul>
-        </section>
+print(addition(3, 5))</code></pre>
+<p><strong>➞ Affiche :</strong><br>8</p>
+<p><strong>💡 Pourquoi ?</strong><br>Une fonction, c’est une <em>recette</em> : tu l’écris une fois, tu peux la réutiliser partout.</p>
+</div>
 
-        <section class="section">
-            <h2>Ajouter des stratégies complexes</h2>
-            <h3>Prioriser les ennemis</h3>
-            <p>Ciblez les ennemis en fonction de critères comme :</p>
-            <ul>
-                <li>L’ennemi ayant le moins de vie.</li>
-                <li>L’ennemi le plus proche.</li>
-                <li>L’ennemi infligeant le plus de dégâts.</li>
-            </ul>
-            <pre><code>var enemies = getEnemies();
-var dangerousEnemy = null;
+<div class="section">
+<h2>🔎 Conditions – Faire des choix</h2>
+<pre><code>age = 17
 
-for (var enemy in enemies) {
-    if (getWeapon(enemy) == "Big Gun") {
-        dangerousEnemy = enemy;
-        break;
-    }
-}
+if age < 12:
+    print("Tu es un enfant")
+elif age < 18:
+    print("Tu es un ado")
+else:
+    print("Tu es majeur")</code></pre>
+<p><strong>➞ Affiche :</strong><br>Tu es un ado</p>
+</div>
 
-if (dangerousEnemy != null) {
-    moveToward(dangerousEnemy);
-    useWeapon(dangerousEnemy);
-}</code></pre>
+<div class="section">
+<h2>🔁 Boucle <code>for</code> – Répéter un certain nombre de fois</h2>
+<pre><code>for i in range(3):
+    print("Tour", i)</code></pre>
+<p><strong>➞ Affiche :</strong><br>Tour 0<br>Tour 1<br>Tour 2</p>
 
-            <h3>Éviter les zones dangereuses</h3>
-            <pre><code>var enemies = getEnemies();
-for (var enemy in enemies) {
-    if (getDistance(getCell(), getCell(enemy)) < 3) {
-        moveAwayFrom(enemy);
-        break;
-    }
-}</code></pre>
+<pre><code>prenom = "Emma"
+for i in range(5):
+    print("Bonjour", prenom)</code></pre>
+<p><strong>➞ Affiche :</strong><br>Bonjour Emma (5 fois)</p>
+</div>
 
-            <h3>Utiliser des puces intelligemment</h3>
-            <pre><code>if (count(getEnemiesInRange(3)) > 2 && canUseChip("Teleport")) {
-    useChip("Teleport", getCell(getRandomEmptyCell()));
-}</code></pre>
-        </section>
+<div class="section">
+<h2>🔄 Boucle <code>while</code> – Répéter tant qu'une condition est vraie</h2>
+<pre><code>x = 3
+while x > 0:
+    print(x)
+    x -= 1
+print("BOOM")</code></pre>
+<p><strong>➞ Affiche :</strong><br>3<br>2<br>1<br>BOOM</p>
+</div>
 
-        <section class="section">
-            <h2>Organiser le Code avec des Fonctions</h2>
-            <p>Créer des fonctions permet de rendre le code lisible et réutilisable.</p>
-            <pre><code>function moveStrategically() {
-    var enemies = getEnemies();
-    var closestEnemy = null;
-    var closestDistance = 99999;
+<div class="section">
+<h2>🔢 Récapitulatif</h2>
+<table>
+  <tr>
+    <th>Élément</th>
+    <th>Ce que ça fait</th>
+    <th>Exemple</th>
+  </tr>
+  <tr><td><code>print()</code></td><td>Afficher un message</td><td><code>print("Hello")</code></td></tr>
+  <tr><td><code>input()</code></td><td>Demander une info</td><td><code>input("Nom ?")</code></td></tr>
+  <tr><td><em>variable</em></td><td>Stocker une donnée</td><td><code>x = 10</code></td></tr>
+  <tr><td><code>if</code></td><td>Tester une condition</td><td><code>if x &gt; 5:</code></td></tr>
+  <tr><td><code>elif</code></td><td>Tester une autre condition</td><td><code>elif x == 5:</code></td></tr>
+  <tr><td><code>else</code></td><td>Faire autre chose</td><td><code>else:</code></td></tr>
+  <tr><td><code>for</code></td><td>Répéter un nombre de fois</td><td><code>for i in range(5):</code></td></tr>
+  <tr><td><code>while</code></td><td>Répéter tant que</td><td><code>while x &lt; 5:</code></td></tr>
+  <tr><td><code>def</code></td><td>Créer une fonction</td><td><code>def ma_fonction():</code></td></tr>
+  <tr><td><code>return</code></td><td>Renvoyer un résultat</td><td><code>return x + y</code></td></tr>
+</table>
+</div>
 
-    for (var enemy in enemies) {
-        var distance = getDistance(getCell(), getCell(enemy));
-        if (distance < closestDistance) {
-            closestDistance = distance;
-            closestEnemy = enemy;
-        }
-    }
-
-    if (closestDistance < 3) {
-        moveAwayFrom(closestEnemy);
-    } else if (closestDistance <= 7) {
-        moveToward(closestEnemy);
-    }
-}
-
-moveStrategically();</code></pre>
-        </section>
-
-        <section class="section">
-            <h2>Les prochains défis</h2>
-            <ul>
-                <li>Faire évoluer l’IA : ajouter des comportements pour contrer des stratégies adverses.</li>
-                <li>Simuler des matchs avec différentes tactiques.</li>
-                <li>Créer des "personnalités" pour les poireaux : agressif, défensif, rusé.</li>
-            </ul>
-        </section>
-
-
-        <section class="section">
-            <h2>Conclusion</h2>
-            <p>
-Bonne chance dans l’arène ! 🎉
-            </p>
-        </section>
-    </main>
 </body>
 </html>
